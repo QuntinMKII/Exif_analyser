@@ -20,7 +20,7 @@ for (dirpath, dirnames, filenames) in walk(os.curdir):
             image = Image.open(os.path.join(dirpath, f))
             if image._getexif():
                 if 272 in image._getexif().keys():
-                    if image._getexif()[272] == 'X-T30':                
+                    if image._getexif()[272] in ['X-T30', 'X-T5']:                
                         focal.append(image._getexif()[37386]) 
 
 focal = pd.Series(focal,dtype=float)
